@@ -1,7 +1,7 @@
 ﻿# STATE — context-repo
 
 ## Objective
-- 1-liner - Maintain a live, minimal source of truth for AI orchestration.
+- test 중 
 
 ## Active Goal
 - Goal:
@@ -22,6 +22,6 @@
 ## Next
 -
 
-<!-- ping 2026-02-09 -->
------------
+
+
 
