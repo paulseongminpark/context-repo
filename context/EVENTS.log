@@ -1,3 +1,5 @@
 ﻿# EVENTS — context-repo
 # FORMAT:
 # [YYYY-MM-DD HH:mm] [Decision|Pending|Discarded] <statement> | scope=<...> | by=<...>
+
+[2026-02-09 12:57] [Decision] Add `## Active Goal` section under `## Objective` in context/STATE.md | scope=context/STATE.md | by=user_approved

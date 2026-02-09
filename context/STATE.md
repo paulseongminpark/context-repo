@@ -3,6 +3,16 @@
 ## Objective
 - 1-liner -
 
+## Active Goal
+- Goal:
+- Why now:
+- Success metric:
+- Constraints:
+- DoD:
+  -
+- Next action:
+  -
+
 ## Current Truth
 - 
 
