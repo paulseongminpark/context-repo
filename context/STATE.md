@@ -1,7 +1,7 @@
 ﻿# STATE — context-repo
 
 ## Objective
-- 1-liner:
+- 1-liner -
 
 ## Current Truth
 - 
