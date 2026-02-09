@@ -1,7 +1,8 @@
-﻿# STATE — context-repo
+# STATE — context-repo
 
 ## Objective
 - 로컬 단일 진실(SoT) 기반 코어 루프 안정화
+- test 1
 
 ## Active Goal
 - Goal: Ctrl+Alt+V로 최신 STATE.md 즉시 공유 (git pull 의존 제거)

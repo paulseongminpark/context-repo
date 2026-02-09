@@ -10,7 +10,7 @@ $now = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
 if (!(Test-Path $statePath)) {
   $content = "(missing) $statePath"
 } else {
-  $content = Get-Content $statePath -Raw
+  $content = Get-Content $statePath -Raw -Encoding UTF8
 }
 
 $meta = "<!-- updated=$now KST -->"
