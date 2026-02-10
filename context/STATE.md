@@ -14,6 +14,7 @@
 - 로컬 단일 진실(SoT) + GitHub 미러 운영 원칙 유지
 - 모든 AI는 두 STATE URL을 참조하여 전체 진행상황 파악
 - portfolio_ui_test_v2/context/STATE.md 생성 완료 (React 19 + Vite 7 + TS 5.9) (2026-02-10)
+- 단일 Obsidian 볼트(AI_작업실)로 통합 관리 확정 (2026-02-10)
 
 ## Open
 - GPT/Gemini 시스템 프롬프트 적용 후 실제 Packet 흐름 테스트 필요
@@ -21,6 +22,7 @@
 ## Now
 - 각 AI 시스템 프롬프트 적용 완료
 - 포트폴리오 컨텍스트 인프라 구축 완료 (2026-02-10)
+- Obsidian 볼트 통합 + CLAUDE.md 자동 커밋 규칙 적용 (2026-02-10)
 
 ## Next
 - 전체 Packet 흐름 테스트 (GPT → Packet → Claude Code → STATE 업데이트)
