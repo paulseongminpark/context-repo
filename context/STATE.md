@@ -44,9 +44,11 @@ GitHub
 ## 과거 결정
 
 **2026-02-12**
-- 로그: AI_작업실/LOGS 중앙화, 프로젝트별 자동 분기
-- STATE: push-state.ps1 + Git Hook, Claude는 커밋만
-- 효율: echo 사용(재읽기 금지), CLAUDE.md 75% 압축
+- 로그 이원화: LOGS (한줄요약) + EVIDENCE (세션상세)
+- EVIDENCE: copy-session-log.py (Paul/claude, KST, 평문, 원본보존)
+- push-state.ps1 통합 (session+split+STATE, 1클릭 자동화)
+- Python: split-logs.py (인코딩 문제 해결)
+- 효율: CLAUDE.md 320토큰, echo 사용
 
 **2026-02-10**
 - Obsidian 단일 볼트 통합
