@@ -4,8 +4,9 @@
 
 **완료**
 - STATE 자동 Push (바탕화면 아이콘 → Git Hook)
-- 로그 중앙화 (AI_작업실/LOGS + split-logs.ps1)
-- 토큰 효율화 (CLAUDE.md 320토큰)
+- 로그 이원화 (LOGS 요약 + EVIDENCE 상세)
+- EVIDENCE 시스템 (Paul/claude, KST, 평문)
+- push-state.ps1 완전 자동화 (1클릭)
 
 **다음 할 일**
 - Packet 흐름 전체 테스트 (GPT → Claude → STATE)
