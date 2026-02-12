@@ -42,3 +42,20 @@
 - Claude CLAUDE.md Logging 섹션 전면 개편
 - Multi-Agent 구조 정립 (reader/executor/architect)
 - 확장성: 무제한 프로젝트 추가 가능
+
+**2026-02-12: STATE Push 자동화 + 토큰 효율화**
+- push-state.ps1 스크립트 생성 (바탕화면 아이콘)
+- AI_작업실 SoT 유지, Git은 배포용 복사본
+- Claude의 Git 커밋 작업 제거 (토큰 절약)
+- 로그 기록 조건 명시화: 시스템변경, 5개+파일, 새기능, Decision만 (버그/CSS/오타 제외)
+- echo 직접 사용 (파일 읽기 금지) → 토큰 98% 절감
+- CLAUDE.md 초압축: 1200 토큰 → 300 토큰 (75% 절감)
+
+**2026-02-12: STATE Push 자동화 + 로그 효율화**
+- push-state.ps1 + 바탕화면 아이콘 생성
+- Git Hook으로 커밋 후 자동 Push 구현
+- AI_작업실 SoT 유지, Git은 배포용 복사본
+- 로그 효율화: 중요 작업만 기록 (시스템변경, 5개+파일, 새기능, Decision)
+- echo 직접 사용 (파일 읽기 금지) → 토큰 98% 절감
+- CLAUDE.md 초압축: 1200→320 토큰
+- Claude STATE 업데이트 조건 명시 (사용자요청/하루1회/구조변경)
