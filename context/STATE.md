@@ -76,6 +76,9 @@ C:\dev\
 
 ## 과거 결정
 
+**2026-02-16**
+- STATE.md URL 전환: GitHub Pages → raw.githubusercontent.com (GPT 읽기 안정성 개선)
+
 **2026-02-15**
 - 오케스트레이션 재설계 전체 실행 (Phase 1-6)
 - SoT 전환: Obsidian → Git
