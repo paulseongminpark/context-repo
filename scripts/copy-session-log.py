@@ -8,8 +8,24 @@ import sys
 # 프로젝트 파라미터
 project = sys.argv[1] if len(sys.argv) > 1 else "orchestration"
 
-# 최근 세션 파일
-session_files = glob.glob(r"C:\Users\pauls\.claude\projects\C--\*.jsonl")
+# 프로젝트별 세션 디렉토리 매핑 (Claude Code가 CWD 기반으로 생성)
+SESSION_DIRS = {
+    "orchestration": [
+        r"C:\Users\pauls\.claude\projects\C--",
+        r"C:\Users\pauls\.claude\projects\C--dev",
+    ],
+    "portfolio": [
+        r"C:\Users\pauls\.claude\projects\C--dev-01-projects-02-portfolio",
+    ],
+    "ai-config": [
+        r"C:\Users\pauls\.claude\projects\C--dev-02-ai-config",
+    ],
+}
+
+# 모든 매핑된 디렉토리에서 세션 파일 수집
+session_files = []
+for d in SESSION_DIRS.get(project, [r"C:\Users\pauls\.claude\projects\C--"]):
+    session_files.extend(glob.glob(str(Path(d) / "*.jsonl")))
 if not session_files:
     exit()
 
