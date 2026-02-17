@@ -77,25 +77,7 @@ C:\dev\
 
 ---
 
-## 과거 결정
+## 참고 문서
 
-**2026-02-16**
-- STATE.md URL 전환: GitHub Pages → raw.githubusercontent.com (GPT 읽기 안정성 개선)
-
-**2026-02-15**
-- 오케스트레이션 재설계 전체 실행 (Phase 1-6)
-- SoT 전환: Obsidian → Git
-- LOGS/TODAY 폐기 → 3-Layer 로깅 (STATE + LOG + Evidence)
-- CLAUDE.md 축소: 146줄 → 4줄 (95% 토큰 절감)
-- Jeff Su 방법론 채택 (5레벨 MAX, 2자리 넘버링, 99=Archive)
-- .claudeignore 대신 permissions.deny
-- .claude/commands/ 대신 .claude/skills/
-- Symlink 대신 Junction (관리자 권한 불필요)
-
-**2026-02-12**
-- 로그 이원화: LOGS (한줄요약) + EVIDENCE (세션상세)
-- push-state.ps1 통합 자동화
-
-**2026-02-10**
-- Obsidian 단일 볼트 통합
-- Auto-Logging 도입
+- **[PLANNING.md](./PLANNING.md)**: 아키텍처 결정 기록 (ADR)
+- **[KNOWLEDGE.md](./KNOWLEDGE.md)**: 모범 사례, 규칙, 패턴
