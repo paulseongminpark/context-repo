@@ -20,7 +20,7 @@
 - [x] Worker 에이전트 11개 구축 (orchestrator 업그레이드 포함)
 - [x] /morning 스킬 → morning-briefer 에이전트 + TODO 연동
 - [ ] Obsidian Git Auto push interval 설정 (사용자 직접)
-- [ ] monet-lab Worker 2개 (ml-experimenter, ml-porter)
+- [x] monet-lab Worker 2개 (ml-experimenter, ml-porter)
 
 ## v3.0 📋 (계획)
 **TBD — v2 완료 후 결정**
