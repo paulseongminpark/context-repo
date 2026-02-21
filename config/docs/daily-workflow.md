@@ -53,9 +53,21 @@ claude
 
 ### 4. (선택) Obsidian 확인
 
-- `projects/orchestration/STATE.md` — 실시간 최신
-- `projects/portfolio/STATE.md` — 실시간 최신
-- `docs/` — 아키텍처 학습 문서
+- `01_orchestration/context/STATE.md` — 실시간 최신
+- `02_portfolio/context/STATE.md` — 실시간 최신
+- `01_orchestration/config/docs/` — 아키텍처 학습 문서
+
+### 5. (선택) Daily Memo 동기화
+
+```
+> /todo
+```
+
+핸드폰에서 메모한 내용이 있으면 자동으로 TODO.md에 반영됨.
+
+**파이프라인 (D-019)**:
+- 핸드폰 Claude Code → `claude/add-inbox-hello-71SP3` 브랜치 → `Inbox.md` 누적
+- `/todo` 실행 시: 브랜치 Inbox.md 읽기 → main과 diff → 새 항목 merge → 로컬 `C:\dev\02_ai_config\docs\TODO.md` 반영
 
 ---
 
@@ -234,8 +246,8 @@ claude                               ← 새 세션 시작
 3. 1-2분 대기 (Pages 갱신 지연)
 
 ### "Obsidian에서 STATE가 안 보임"
-1. Junction 확인: `dir C:\dev\02_ai_config\projects\`
-2. 재생성: `powershell -Command "cmd /c 'mklink /J \"대상\" \"원본\"'"`
+1. Obsidian vault가 `C:\dev\`를 가리키는지 확인 (Settings → Files & Links → Attachment folder)
+2. context/STATE.md는 직접 경로로 접근: `01_orchestration/context/STATE.md`
 
 ### "프로젝트 설정이 안 먹음"
 → `C:\`에서 열었을 가능성 높음. 프로젝트 폴더에서 다시 열기.
