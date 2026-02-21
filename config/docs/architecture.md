@@ -28,27 +28,27 @@ C:\dev\
 │   │   │   ├── settings.json       ← permissions + hooks
 │   │   │   ├── skills/             ← /sync, /handoff, /status
 │   │   │   └── agents/             ← architect, reviewer
-│   │   ├── context\
+│   │   ├── context\                ← ★ SoT
 │   │   │   ├── STATE.md            ← ★ SoT (단일 진실 소스)
 │   │   │   └── logs\YYYY-MM-DD.md  ← 상세 시간순 기록 (중앙)
+│   │   ├── config\                 ← AI 설정/프롬프트 (구 ai-config 흡수)
+│   │   │   ├── docs\               ← 시스템 문서
+│   │   │   ├── gpt\
+│   │   │   ├── gemini\
+│   │   │   └── perplexity\
 │   │   └── scripts\
 │   │       └── copy-session-log.py ← Evidence 백업
 │   ├── 02_portfolio\               ← Git repo (GitHub: portfolio_20260215)
 │   │   ├── .claude\                ← Claude Code 설정
 │   │   ├── context\STATE.md        ← ★ SoT
 │   │   └── src\                    ← React + Vite 소스
+│   ├── 03_tech-review\             ← tech-review 블로그 (Jekyll)
+│   ├── 05_opcode\                  ← Tauri 앱
 │   └── 99_archive\
 │
-├── 02_ai_config\                   ← Git repo (GitHub: ai-config, private)
-│   │                                  Obsidian 볼트
-│   ├── docs/                       ← 이 문서들
-│   ├── gpt/                        ← GPT 프롬프트 (스냅샷)
-│   ├── gemini/                     ← Gemini 프롬프트 (스냅샷)
-│   ├── perplexity/                 ← Perplexity 프롬프트 (스냅샷)
-│   ├── claude/                     ← Claude 계층 설명
-│   └── projects/                   ← Junction Points (읽기 전용 뷰)
-│       ├── orchestration → 01_orchestration/context
-│       └── portfolio → 02_portfolio/context
+├── 02_ai_config\                   ← ARCHIVED (2026-02-19 이후)
+│   ├── README.md                   ← "orchestration/config/로 이동됨"
+│   └── docs\TODO.md                ← 로컬 TODO (계속 사용)
 │
 ├── 03_evidence\                    ← 세션 로그 (로컬 전용, Git 추적 안 함)
 │   ├── claude/orchestration/
@@ -102,30 +102,18 @@ C:\dev\
                          memory-review.sh ──→ MEMORY.md 정리
 ```
 
-### Daily-Memo 파이프라인 (D-017)
+### Daily-Memo 파이프라인 (D-019)
 
 ```
-[세션 시작]
-    │
-    └─ SessionStart Hook (settings.json)
-        │
-        ├─ clear hook ──→ /clear 실행 (컨텍스트 초기화)
-        │
-        └─ morning hook ──→ /morning Skill 실행
-            │
-            ├─ orchestration STATE.md 읽기
-            ├─ portfolio STATE.md 읽기
-            ├─ (확장 가능: 다른 프로젝트)
-            │
-            └─ 자동 브리핑 출력:
-                완료 N / 진행 N / 막힌것 N
-                추천: [다음 작업 제안]
+핸드폰 Claude Code (cloud env)
+    → claude/add-inbox-hello-71SP3 브랜치 → Inbox.md 누적
+
+컴퓨터 /todo 실행:
+    → 브랜치 Inbox.md 읽기 → main과 diff
+    → 새 항목 → main merge → 로컬 TODO.md 반영
 ```
 
-**특징**:
-- `/morning` 수동 입력 불필요
-- 매 세션 시작 시 자동 현황 파악
-- Haiku 모델로 토큰 효율적
+참고: D-019 — cloud env 제약으로 main 직접 push 불가, 브랜치 고정.
 
 ## GitHub 구성
 
@@ -133,7 +121,8 @@ C:\dev\
 |------|------------|------|-------|
 | 01_orchestration | orchestration | public | ✅ STATE.md 공개 |
 | 02_portfolio | portfolio_20260215 | public | ✅ STATE.md 공개 |
-| 02_ai_config | ai-config | private | ❌ |
+| 02_ai_config | ai-config | private (ARCHIVED) | ❌ |
+| 03_tech-review/blog | tech-review | public | ✅ Jekyll 블로그 |
 | — | portfolio (구) | archived | — |
 
 ## 관련 문서
