@@ -14,6 +14,8 @@
 | [[daily-workflow]] | 일일 사용법 — 아침부터 저녁까지 |
 | [[decisions]] | 주요 결정 기록 — 무엇을 왜 선택/폐기했는가 |
 | [[TODO]] | 할 일 목록 — 앞으로 하고싶은것 |
+| [[crystalize-prompt]] | 프롬프트 압축 방법론 (cc-system) — 의도 보존, 고해상도 토큰화 |
+| [[design-pipeline]] | AI 파이프라인 설계 원칙 (cc-system) — 컨텍스트 효율, 전처리 분리 |
 
 ## AI 프롬프트 파일 (스냅샷)
 
