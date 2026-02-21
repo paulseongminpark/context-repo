@@ -2,24 +2,58 @@
 
 ---
 
+## v2.1 — 완료 (2026-02-22)
+
+### 추가
+- Gemini CLI 설치 완료 (`@google/gemini-cli` v0.29.5)
+- gemini-analyzer 에이전트 연동 검증 완료
+
+### 결정
+- GitHub App PR 자동 리뷰 설치 안 함 (불필요 판단)
+
+---
+
 ## v2.0 — 완료 (2026-02-21)
 
 ### 추가
 - cc-system 통합: crystalize-prompt, design-pipeline, skill-creator, subagent-creator, hook-creator
 - C:\dev 볼트 git repo 초기화 → dev-vault GitHub 연결 (main 브랜치)
-- Skills 11개 → 14개 (skill-creator, subagent-creator, hook-creator 신규)
+- Skills 11개 → 17개 신규: skill-creator, subagent-creator, hook-creator, catchup, gpt-review, commit-push-pr
 - 버전 관리 체계 (CHANGELOG.md, ROADMAP.md)
-- Worker 에이전트 11개 구축:
-  - orchestrator (업그레이드: 라우터 전용 Haiku)
-  - morning-briefer (프로젝트 현황 + TODO 통합 브리핑)
-  - pf-context, pf-reviewer [Opus], pf-deployer (portfolio 전용)
-  - orch-state, orch-doc-writer [Opus], orch-skill-builder [Opus] (orchestration 전용)
-  - code-reviewer [Opus], commit-writer, compressor (cross-project)
-- /morning 스킬 → morning-briefer 에이전트 연동 + TODO 포함
+- Rules 구조화: common-mistakes.md, workflow.md 추가
+- MCP 2개 추가: sequential-thinking, memory
+- session-summary.md 추가 (catchup 스킬 연동)
+- 02_ai_config 로컬 폴더 완전 삭제 (config → orchestration/config/ 흡수)
+- Agent Teams 활성화 (CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1)
+
+### 에이전트 14개 구축
+**PROACTIVELY (4개)**
+- code-reviewer [Opus], commit-writer [Haiku], orch-state [Sonnet], compressor [Sonnet]
+
+**Portfolio (3개)**
+- pf-context [Sonnet], pf-reviewer [Opus], pf-deployer [Sonnet]
+
+**Orchestration (2개)**
+- orch-doc-writer [Opus], orch-skill-builder [Opus]
+
+**Monet-lab (2개)**
+- ml-experimenter [Opus], ml-porter [Sonnet]
+
+**Analysis (2개)**
+- gemini-analyzer [Sonnet], security-auditor [Opus]
+
+**Morning (1개)**
+- morning-briefer [Haiku]
+
+### Hooks (5종)
+- Stop: 미커밋 변경사항 자동 차단
+- SessionStart: git status 자동 출력 + 작업 로그 브리핑
+- PreToolUse: 위험 명령어 차단 (rm -rf, force push 등)
+- TeammateIdle: 팀원 유휴 알림
+- Notification: 작업 완료 알림
 
 ### 미완료 (v2 잔여)
 - Obsidian Git Auto push interval 설정 (사용자 직접)
-- monet-lab Worker 2개 (ml-experimenter, ml-porter) — 대기 중
 
 ---
 
