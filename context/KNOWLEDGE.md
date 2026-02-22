@@ -9,7 +9,7 @@
 ### 브랜치 전략
 - **orchestration**: main 브랜치
 - **portfolio**: master 브랜치
-- **ai-config**: main 브랜치
+- **ai-config**: DELETED (orchestration/config/ 로 이전됨. GitHub archived 유지)
 
 ### 커밋 메시지
 ```
@@ -24,7 +24,7 @@
 
 **필수**:
 ```
-Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+Co-Authored-By: Claude Sonnet 4.6 (1M context) <noreply@anthropic.com>
 ```
 
 ### 금지 사항
@@ -85,7 +85,7 @@ context/
 ```
 
 **태그**:
-- 프로젝트: `[orchestration]`, `[portfolio]`, `[ai-config]`
+- 프로젝트: `[orchestration]`, `[portfolio]`, `[tech-review]`
 - 결정: `[Decision]`, `[Pending]`, `[Discarded]`
 - 협업: `[cowork]` (다른 AI와 협업 시)
 
@@ -137,13 +137,10 @@ claude --context
 
 **시나리오 1: 일일 작업 시작**
 ```bash
-cd C:\dev\02_ai_config
+cd C:\dev
 claude
-> /morning            # 전체 브리핑 확인
-# (작업 결정)
-cd C:\dev\01_projects\01_orchestration
-claude
-# (작업 진행)
+> /morning            # 전체 브리핑 확인 (catchup + orch-state 통합)
+# (작업 결정 후 해당 프로젝트 디렉토리로 이동)
 ```
 
 **시나리오 2: 작업 완료**
@@ -241,19 +238,22 @@ Claude Code (실행)
 
 ## Hooks
 
-### SessionStart (ai-config)
-- 자동: 전체 프로젝트 최근 변경 표시
+### SessionStart (글로벌)
+- 자동: 오늘 LOG tail-30 + 미커밋 상태 + decisions.md 미반영 항목 출력
 - 목적: 작업 시작 시 컨텍스트 파악
 
-### PostToolUse (orchestration, ai-config)
-- 트리거: Edit, Write 도구 사용
-- 대상: STATE.md, CLAUDE.md, docs/*.md
-- 알림: "⚠️ 중요 파일 변경. /sync 권장"
+### PostToolUse (글로벌)
+- 트리거: Write|Edit 도구 사용
+- 대상: context/*.md 수정 시
+- 알림: "context/*.md modified - check before commit"
 
-### Stop (orchestration, ai-config)
-- 자동: 세션 로그 복사 (03_evidence/)
-- 검증: STATE.md 미커밋 체크
-- 차단: 미커밋 시 세션 종료 경고
+### SessionEnd (글로벌)
+- 자동: 프로젝트별 미커밋 현황 출력
+- 추가: MEMORY.md 150줄 초과 시 경고
+
+### PreToolUse (글로벌)
+- 트리거: Bash 명령 실행 전
+- 차단: rm -rf, git push --force 등 위험 명령 (페일클로즈)
 
 ---
 
