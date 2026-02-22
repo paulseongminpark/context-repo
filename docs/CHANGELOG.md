@@ -7,9 +7,12 @@
 ### 추가
 - Gemini CLI 설치 완료 (`@google/gemini-cli` v0.29.5)
 - gemini-analyzer 에이전트 연동 검증 완료
+- Hooks 추가 2종: PreCompact (compact 전 /verify 권장), TaskCompleted (태스크 완료 알림)
 
 ### 결정
 - GitHub App PR 자동 리뷰 설치 안 함 (불필요 판단)
+- orchestrator 에이전트 비활성화 — Claude가 직접 라우팅 (중간 레이어 불필요)
+- MCP 최소화 — CLI 대체 가능한 것은 설치 안 함 (GitHub=gh, Puppeteer=playwright)
 
 ---
 
@@ -45,10 +48,12 @@
 **Morning (1개)**
 - morning-briefer [Haiku]
 
-### Hooks (5종)
-- Stop: 미커밋 변경사항 자동 차단
-- SessionStart: git status 자동 출력 + 작업 로그 브리핑
+### Hooks (7종)
+- Stop: 미커밋 변경사항 자동 차단 (작업 세션 보호)
+- SessionStart: 작업 로그 브리핑 + git status 자동 출력
+- SessionEnd: 세션 종료 시 /sync 권장 알림
 - PreToolUse: 위험 명령어 차단 (rm -rf, force push 등)
+- PostToolUse: context/*.md 수정 감지 → 커밋 전 확인
 - TeammateIdle: 팀원 유휴 알림
 - Notification: 작업 완료 알림
 
