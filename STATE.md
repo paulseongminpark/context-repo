@@ -1,11 +1,11 @@
 # Orchestration STATE
 
-> 마지막 갱신: 2026-02-22 (세션 마무리2)
+> 마지막 갱신: 2026-02-22 (orch-system-overhaul 세션)
 > /sync 스킬로 자동 갱신됩니다.
 
 ## 현재 상태
 
-**시스템 버전**: v2.1 (Session Visibility System 추가)
+**시스템 버전**: v2.1 (Session Visibility System + Security Hardening)
 **활성 프로젝트**: tech-review, portfolio, orchestration
 
 ## 진행 중
@@ -27,12 +27,25 @@
 - **미완**: 07~10 스크린샷 → lab.md 이미지 링크 추가
 
 ### orchestration
-- CHANGELOG.md v2.0 hooks 7종 완성
-- Session Visibility System 구현 완료
-  - decisions.md (~/.claude/)
-  - SessionStart/SessionEnd Hook 강화
-  - compressor 4곳 저장 확장
+- gemini-analyzer 비판 분석 기반 시스템 overhaul 완료 (11개 태스크)
+- 보안 강화: PAT → Windows 환경변수, PreToolUse 페일클로즈
+- SNAPSHOT.txt 아카이브 완료 (context/archive/)
+- decisions.md git-tracked 전환 (orchestration/context/)
+- KNOWLEDGE.md stale 항목 정리 완료
+- morning-briefer 통합 엔트리포인트로 업그레이드
+- compressor 5곳 저장으로 확장 (METRICS.md 추가)
 - **다음**: v2.1 공식 문서화
+
+## 완료된 것
+
+- [2026-02-22] CHANGELOG.md v2.0 hooks 7종 완성
+- [2026-02-22] Session Visibility System 구현 (decisions.md + SessionStart/End Hook + compressor 확장)
+- [2026-02-22] gemini-analyzer 오케스트레이션 비판 분석 + overhaul 11개 태스크 완료
+- [2026-02-22] PAT 보안: settings.json 제거 → Windows 환경변수
+- [2026-02-22] PreToolUse 페일클로즈 전환
+- [2026-02-22] decisions.md git-tracked (orchestration/context/)
+- [2026-02-22] KNOWLEDGE.md stale 정리
+- [2026-02-22] morning-briefer 통합 업그레이드
 
 ## 시스템 현황
 
@@ -55,15 +68,19 @@
 - /compact (compressor 트리거)
 
 ### Hooks (9개)
-- SessionStart: 미반영 decisions 출력 + git 상태
-- SessionEnd: git 상태 자동 출력
+- SessionStart: 미반영 decisions 출력 + git 상태 + docs-review 7일 경과 경고
+- SessionEnd: git 상태 자동 출력 + MEMORY.md 150줄 초과 경고
 - Stop: 미커밋 차단
-- PreToolUse: 위험 명령 차단
+- PreToolUse: 위험 명령 차단 (페일클로즈: exit 2)
 - TeammateIdle, TaskCompleted, Notification
 - PostToolUse, SubagentStop
 
 ## 결정 이력 (최근)
-- compressor = 4곳 저장 (session-summary + LOG + STATE.md + decisions.md)
+- compressor = 5곳 저장 (session-summary + LOG + STATE.md + decisions.md + METRICS.md)
+- decisions.md: orchestration/context/decisions.md (git-tracked)
+- PAT: Windows 환경변수로 관리 (settings.json 제거)
+- PreToolUse 페일클로즈: exit 2 = 차단 (|| echo "" 방식 폐기)
+- morning-briefer = catchup + orch-state 통합 엔트리포인트
 - decisions.md: ❌/✅ + 태그(pf/tr/ml/orch) 추적
 - Smart Brevity = Today in One Line + Why it matters + 불릿3 + What's next
 - orchestrator 비활성화 — Claude 직접 라우팅
